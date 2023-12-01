@@ -43,7 +43,7 @@ func main() {
 		UserAgent: userAgent,
 		PageURL:   "https://auth.ticketmaster.com/",
 		Proxy:     "",
-		Data:      sensor.Data,
+		Data:      sensor.Headers["data"].(string),
 	}
 
 	if sensor, err := session.GeneratePerimeterXCookie(context.Background(), req); err != nil {
