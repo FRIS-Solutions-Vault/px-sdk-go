@@ -31,7 +31,7 @@ func TestGenerate(t *testing.T) {
 	}
 
 	// HoldCaptcha
-	req = &GenerateRequest{
+	hcReq := &GenerateHoldCapRequest{
 		UserAgent: userAgent,
 		PageURL:   "https://auth.ticketmaster.com/",
 		Proxy:     "",
@@ -39,7 +39,7 @@ func TestGenerate(t *testing.T) {
 		PxHd:      "",
 	}
 
-	if sensor, err := session.SolveHoldCaptcha(context.Background(), req); err != nil {
+	if sensor, err := session.SolveHoldCaptcha(context.Background(), hcReq); err != nil {
 		panic(err)
 	} else {
 		log.Println("PX HoldCaptcha Response: ", sensor)

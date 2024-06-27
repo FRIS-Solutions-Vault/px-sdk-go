@@ -41,6 +41,34 @@ type GenerateRequest struct {
 	PxHd string `json:"_pxhd,omitempty"`
 }
 
+// GenerateHoldCapRequest is the API generation request schema.
+type GenerateHoldCapRequest struct {
+	// ApiKey is the API key to use when generating px cookies.
+	//
+	// This is required for all generation requests.
+	ApiKey string `json:"apiKey"`
+
+	// UserAgent is the user agent to use when generating px cookies.
+	//
+	// Current restrictions apply to this preference. The user agent
+	// must be a Google Chrome v114 or v119 user agent.
+	// Callers can use any platform they like, however it is highly
+	// recommended to use Windows.
+	UserAgent string `json:"ua"`
+
+	// PageURL is the URL of the page to generate sensor data for.
+	PageURL string `json:"pageUrl"`
+
+	// Proxy is the proxy to use when generating px cookies.
+	Proxy string `json:"proxy"`
+
+	// Data is the px data to use when solving holdcaptcha challenges.
+	Data string `json:"data,omitempty"`
+
+	// _pxhd is the pxhd value
+	PxHd string `json:"_pxhd"`
+}
+
 // GenerateResponse is the API generation response schema.
 type GenerateResponse struct {
 	// Cookie is the px cookie
@@ -113,7 +141,7 @@ var (
 )
 
 // SolveHoldCaptcha solves holdcaptcha
-func (session Session) SolveHoldCaptcha(ctx context.Context, req *GenerateRequest) (*GenerateResponse, error) {
+func (session Session) SolveHoldCaptcha(ctx context.Context, req *GenerateHoldCapRequest) (*GenerateResponse, error) {
 	req.ApiKey = session.apiKey
 	encoded, err := json.Marshal(req)
 	if err != nil {
