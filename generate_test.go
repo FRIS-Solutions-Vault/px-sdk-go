@@ -36,6 +36,7 @@ func TestGenerate(t *testing.T) {
 		PageURL:   "https://auth.ticketmaster.com/",
 		Proxy:     "",
 		Data:      sensor.Headers["data"].(string),
+		PxHd:      "",
 	}
 
 	if sensor, err := session.GeneratePerimeterXCookie(context.Background(), req); err != nil {
