@@ -75,7 +75,7 @@ func (session Session) GeneratePerimeterXCookie(ctx context.Context, req *Genera
 		return nil, err
 	}
 
-	request, err := http.NewRequestWithContext(ctx, "POST", "https://api.frisapi.dev/pxweb/init", bytes.NewBuffer(encoded))
+	request, err := http.NewRequestWithContext(ctx, "POST", "https://anti-gen-golang-production.up.railway.app/pxweb/init", bytes.NewBuffer(encoded))
 	if err != nil {
 		return nil, err
 	}
@@ -120,7 +120,7 @@ func (session Session) SolveHoldCaptcha(ctx context.Context, req *GenerateReques
 		return nil, err
 	}
 
-	request, err := http.NewRequestWithContext(ctx, "POST", "https://api.frisapi.dev/pxweb/holdcap", bytes.NewBuffer(encoded))
+	request, err := http.NewRequestWithContext(ctx, "POST", "https://anti-gen-golang-production.up.railway.app/pxweb/holdcap", bytes.NewBuffer(encoded))
 	if err != nil {
 		return nil, err
 	}

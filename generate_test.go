@@ -39,7 +39,7 @@ func TestGenerate(t *testing.T) {
 		PxHd:      "",
 	}
 
-	if sensor, err := session.GeneratePerimeterXCookie(context.Background(), req); err != nil {
+	if sensor, err := session.SolveHoldCaptcha(context.Background(), req); err != nil {
 		panic(err)
 	} else {
 		log.Println("PX HoldCaptcha Response: ", sensor)
