@@ -34,6 +34,11 @@ type GenerateRequest struct {
 	//
 	// This is optional for the generation request, but required for holdcaptcha
 	Data string `json:"data,omitempty"`
+
+	// _pxhd is the pxhd value
+	//
+	// This is optional for the generation request, but required for holdcaptcha
+	PxHd string `json:"_pxhd,omitempty"`
 }
 
 // GenerateResponse is the API generation response schema.
